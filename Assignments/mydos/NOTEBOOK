@@ -1,0 +1,31 @@
+#    SPDX-FileCopyrightText: 2024 AlvaroJoseLopes <alvarojoselopes@hotmail.com>
+#   
+#    SPDX-License-Identifier: GPL-3.0-or-later
+
+# Exercício 4
+
+Para remover o link do programa externo ao DOS é preciso:
+1. No makefile remover as referências ao programa, por exemplo no trecho: `$(dos).bin : prog.o libtydos.o`
+2. Remover as chamadas ao programa externo dentro do kernel. Removendo o seguinte trecho:
+```
+extern int main();
+void f_exec()
+{
+  main();			/* Call the user program's 'main' function. */
+}
+```
+3. Remover as referências ao programa externo dentro do linker script `tydos.ld`. Removendo o seguinte trecho de codigo:
+```
+.prog_example :		
+{
+    prog.o      (.text .data .bss. .rodata)
+    libtydos.o  (.text .data .bss. .rodata)
+}
+```
+
+# Exercício 6
+
+Use a diretiva:
+```
+make write-dos-to-disk
+```
