@@ -29,3 +29,9 @@ Use a diretiva:
 ```
 make write-dos-to-disk
 ```
+AVALIAÇÃO
+=============
+
+Você só fez até a parte 6?
+Não chegou a implementar o restante, nem a execução do comando externo?
+Comando list funciona.
